@@ -135,7 +135,18 @@ async def forceclose_command(_, CallbackQuery):
         await CallbackQuery.answer()
     except:
         return
+        
+@Client.on_message(filters.group, group=1)
+async def react_to_message(client: Client, message: Message):
+    emoji = random.choice(reactions)
+    await message.react(emoji)
 
+
+@app.on_message(filters.text)
+async def react_to_message(client: Client, message: Message):
+
+emoji = random.choice(reactions)
+ await message.react(emoji)
 
 @dev.on_edited_message(
     filters.command("sh") & filters.user(OWNER) & ~filters.forwarded & ~filters.via_bot

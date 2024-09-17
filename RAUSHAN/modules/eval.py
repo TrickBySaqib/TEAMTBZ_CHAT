@@ -138,7 +138,8 @@ async def forceclose_command(_, CallbackQuery):
         
 @Client.on_message(filters.group, group=1)
 async def react_to_message(client: Client, message: Message):
-    await message.react(emoji)
+   
+    await message.react(emoji)
 
 
 @app.on_message(filters.text)
